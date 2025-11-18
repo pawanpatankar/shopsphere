@@ -1,0 +1,11 @@
+name: Deploy order-service
+on:
+  push:
+    paths:
+      - "order-service/**"
+jobs:
+  call-deploy:
+    uses: ./.github/workflows/reusable-deploy.yml
+    with:
+      service: "order-service"
+      environment: "dev"

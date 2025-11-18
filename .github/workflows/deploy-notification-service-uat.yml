@@ -1,0 +1,11 @@
+name: Deploy notification-service
+on:
+  push:
+    paths:
+      - "notification-service/**"
+jobs:
+  call-deploy:
+    uses: ./.github/workflows/reusable-deploy.yml
+    with:
+      service: "notification-service"
+      environment: "dev"

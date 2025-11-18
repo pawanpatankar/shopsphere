@@ -1,0 +1,39 @@
+name: Reusable Deploy Workflow
+
+on:
+  workflow_call:
+    inputs:
+      service:
+        required: true
+        type: string
+      environment:
+        required: true
+        type: string
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show context
+        run: |
+          echo "Service: ${{ inputs.service }}"
+          echo "Environment: ${{ inputs.environment }}"
+
+      - name: Run lint (simulated)
+        run: |
+          echo "Running lint for ${{ inputs.service }}"
+
+      - name: Build (simulated)
+        run: |
+          echo "Building docker image for ${{ inputs.service }}"
+
+      - name: Deploy (simulated)
+        run: |
+          if [ "${{ inputs.environment }}" = "prod" ]; then
+            echo "Triggering PROD deployment for ${{ inputs.service }} (requires manual approval)"
+          else
+            echo "Deploying ${{ inputs.service }} to ${{ inputs.environment }}"
+          fi

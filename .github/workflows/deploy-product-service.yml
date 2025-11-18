@@ -1,0 +1,11 @@
+name: Deploy product-service
+on:
+  push:
+    paths:
+      - "product-service/**"
+jobs:
+  call-deploy:
+    uses: ./.github/workflows/reusable-deploy.yml
+    with:
+      service: "product-service"
+      environment: "dev"
