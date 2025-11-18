@@ -1,8 +1,12 @@
-name: Deploy notification-service
+name: Deploy notification-service (PROD)
+
 on:
   push:
+    tags:
+      - "v*.*.*"
     paths:
       - "notification-service/**"
+
 jobs:
   call-deploy:
     uses: ./.github/workflows/reusable-deploy.yml
