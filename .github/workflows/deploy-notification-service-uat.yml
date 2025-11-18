@@ -8,4 +8,4 @@ jobs:
     uses: ./.github/workflows/reusable-deploy.yml
     with:
       service: "notification-service"
-      environment: "dev"
+      environment: "uat"
