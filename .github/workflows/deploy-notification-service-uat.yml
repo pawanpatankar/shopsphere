@@ -1,8 +1,12 @@
-name: Deploy notification-service
+name: Deploy notification-service (UAT)
+
 on:
   push:
+    branches:
+      - release/*
     paths:
       - "notification-service/**"
+
 jobs:
   call-deploy:
     uses: ./.github/workflows/reusable-deploy.yml
